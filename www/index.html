@@ -484,6 +484,20 @@ function updateUI(user) {
         $('#userEmail').text('');
     }
 }
+function toggleTheme() {
+    const body = document.body;
+    const btn = $('#themeToggleBtn');
+
+    body.classList.toggle('dark');
+
+    if (body.classList.contains('dark')) {
+        btn.text('☀ ライトモード');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        btn.text('🌙 ダークモード');
+        localStorage.setItem('theme', 'light');
+    }
+}
 
 $(function() {
     // Firebaseの初期化
@@ -533,6 +547,12 @@ $(function() {
 
     // 投稿一覧の初期読み込み
     loadPosts();
+    const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark');
+    $('#themeToggleBtn').text('☀ ライトモード');
+}
+$('#themeToggleBtn').on('click', toggleTheme);
 });
 
 // クリーンアップ処理
@@ -542,6 +562,7 @@ window.addEventListener('unload', () => {
         postsListener = null;
     }
 });
+
     </script>
 </head>
 <body>
