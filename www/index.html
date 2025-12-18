@@ -484,6 +484,7 @@ function updateUI(user) {
         $('#userEmail').text('');
     }
 }
+//切り替え処理
 function toggleTheme() {
     const body = document.body;
     const btn = $('#themeToggleBtn');
@@ -547,8 +548,8 @@ $(function() {
 
     // 投稿一覧の初期読み込み
     loadPosts();
-    const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
+     const savedTheme = localStorage.getItem('theme');
+     if (savedTheme === 'dark') {
     document.body.classList.add('dark');
     $('#themeToggleBtn').text('☀ ライトモード');
 }
