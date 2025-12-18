@@ -540,3 +540,7 @@ body.dark .btn-secondary {
     background-color: #555;
     color: #fff;
 }
+body.dark h1,
+body.dark h2 {
+    color: #ffffff;
+}
