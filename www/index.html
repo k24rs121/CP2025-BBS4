@@ -218,12 +218,17 @@ function createPostElement(post) {
                 </div>
             </div>
             <div class="post-footer">
+            <button class="copy-btn" onclick="copyPost('${post.id}')">
+            📋 コピー
+            </button>
                 <span class="post-time">
                     ${formatRelativeTime(post.timestamp)}
                 </span>
                  <span class="post-time">
                     ${formatTimestamp(post.timestamp)}
                 </span>
+
+
                 
                 ${post.updatedAt ? `
                     <span class="post-updated">
@@ -413,6 +418,19 @@ function animateUpdate(postId) {
         post.removeClass('updated');
     }, 1000);
 }
+// 投稿内容をコピーする処理
+function copyPost(postId) {
+    const text = $(`#post-${postId} .post-content`).text();
+
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            showMessage('コピーしました');
+        })
+        .catch(() => {
+            showMessage('コピーに失敗しました', 'error');
+        });
+}
+
 
 // ログイン処理
 function login(email, password) {
