@@ -548,3 +548,16 @@ body.dark h1,
 body.dark h2 {
     color: #ffffff;
 }
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: #555;
+    margin-right: 8px;
+}
+
+.copy-btn:hover {
+    text-decoration: underline;
+}
+
